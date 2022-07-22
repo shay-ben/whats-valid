@@ -23,8 +23,8 @@ export const getSavedPollIds = () => {
       return false;
     }
   
-    const updatedSavedPollIds = savedBookIds?.filter((savedPollId) => savedPollId !== PollId);
-    localStorage.setItem('saved_polls', JSON.stringify(updatedPollsBookIds));
+    const updatedSavedPollIds = savedPollsIds?.filter((savedPollId) => savedPollId !== PollId);
+    localStorage.setItem('saved_polls', JSON.stringify(updatedPollsIds));
   
     return true;
   };
