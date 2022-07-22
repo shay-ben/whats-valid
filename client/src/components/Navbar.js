@@ -14,9 +14,21 @@ const AppNavbar = () => {
         <>
             <Navbar bg=''>
                 <Container fluid>
-                    
+
                 </Container>
             </Navbar>
+
+            <Modal 
+                size='lg'
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                aria-labelledby='signup-modal'>
+
+
+            </Modal>
+
         </>
-    )
-}
+    );
+};
+
+export default AppNavbar;
