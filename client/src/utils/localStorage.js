@@ -6,7 +6,7 @@ export const getSavedPollIds = () => {
     return savedPollIds;
   };
   
-  export const saveBookIds = (pollIdArr) => {
+  export const savePollIds = (pollIdArr) => {
     if (pollIdArr.length) {
       localStorage.setItem('saved_polls', JSON.stringify(pollIdArr));
     } else {
