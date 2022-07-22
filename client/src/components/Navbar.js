@@ -23,10 +23,12 @@ const AppNavbar = () => {
                 show={showModal}
                 onHide={() => setShowModal(false)}
                 aria-labelledby='signup-modal'>
-                    
+
 
             </Modal>
 
         </>
-    )
-}
+    );
+};
+
+export default AppNavbar;
