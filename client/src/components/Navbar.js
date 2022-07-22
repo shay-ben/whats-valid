@@ -5,3 +5,18 @@ import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
 import Auth from '../utils/auth';
+
+const AppNavbar = () => { 
+    // Set Modal Display State 
+    const [showModal, setShowModal] = useState(false);
+
+    return (
+        <>
+            <Navbar bg=''>
+                <Container fluid>
+                    
+                </Container>
+            </Navbar>
+        </>
+    )
+}
