@@ -4,7 +4,7 @@ const typeDefs = gql`
     type poll {
         _id: ID
         question: String
-        options: Array
+        options: [String]
 
     }
 
