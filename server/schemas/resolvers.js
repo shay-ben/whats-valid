@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Poll } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -18,6 +18,12 @@ const resolvers = {
         console.log('context.user', context.user);
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    polls: async () => {
+      return Poll.find();
+    },
+    user: async (parent, { username }) => {
+      return Poll.findOne({ _id: id });
     },
   },
 
@@ -44,6 +50,27 @@ const resolvers = {
 
       return { token, user };
     },
+    createPoll: async (parent, {name, question, optionsArr}) => {
+      console.log("optionsArr", optionsArr);
+      const poll = await Poll.create({ name, question });
+      let result = "";
+      for (let i=0; i < optionsArr.length; i++) {
+        result = await Poll.findOneAndUpdate(
+            { _id: poll._id},
+            { $push: {options: {optionBody: optionsArr[i]}}},
+            {new: true});
+         console.log("result:", result);   
+      }
+      return result;
+    },
+    deletePoll: async (parent, {id}) => {
+      const poll = await Poll.findByIdAndDelete(id);
+      return `Your ${poll.name} poll was deleted!`;
+    },
+    deleteAllPolls: async (parent, args) => {
+      await Poll.deleteMany();
+      return `All polls were deleted`;
+    }
   },
 };
 
