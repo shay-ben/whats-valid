@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-
 const {pollSchema, optionSchema} = require('./Poll');
 
 const userSchema = new Schema(
