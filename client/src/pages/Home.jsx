@@ -1,15 +1,18 @@
 import React from 'react';
+import '../images/valid.png'
 
-const HelloWorld = () => {
+const Home = () => {
   
-  function sayHello() {
+  function signUp() {
     alert('Hello, World!');
   }
   
   return (
 
-    <button onClick={sayHello}>Click me!</button>
+    <button onClick={signUp}>CLICK ME</button> 
   );
+
+
 };
 
-export default HelloWorld;
+export default Home;
