@@ -17,7 +17,11 @@
 }
 
 
-
+body {
+  background-image: url("./images/BACKGROUND.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 a {
   font-weight: 500;
   color: #646cff;
