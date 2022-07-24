@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// include what User is voting on and how
+
 const userSchema = new Schema(
   {
     username: {
