@@ -20,6 +20,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    // savedPolls
   },
   // set this to use virtual below
   {
