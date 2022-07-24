@@ -1,17 +1,14 @@
 const { Schema, model, Types } = require('mongoose');
 
-const OptionSchema = new Schema(
+const optionSchema = new Schema(
   {
-    optionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
     optionBody: {
       type: String,
       required: true,
     },
     numVotes: {
-      type: Number
+      type: Number,
+      default: 0
     }
   },
   {
@@ -23,7 +20,7 @@ const OptionSchema = new Schema(
 );
 
 
-const PollSchema = new Schema(
+const pollSchema = new Schema(
   {
     name: {
       type: String,
@@ -33,7 +30,7 @@ const PollSchema = new Schema(
       type: String,
       required: true,
     },
-    options: [OptionSchema]
+    options: [optionSchema]
   },
   {
     toJSON: {
@@ -43,7 +40,7 @@ const PollSchema = new Schema(
   }
 );
 
-PollSchema.virtual('totalVotes').get(function () {
+pollSchema.virtual('totalVotes').get(function () {
   let totalVotes = 0;
   for (let i=0; i < this.options.length; i++) {
     totalVotes += this.options.numVotes;
@@ -51,6 +48,6 @@ PollSchema.virtual('totalVotes').get(function () {
   return totalVotes;
 });
   
-const Poll = model('Poll', PollSchema);
+const Poll = model('Poll', pollSchema);
 
-module.exports = Poll;
+module.exports = {Poll, pollSchema, optionSchema};

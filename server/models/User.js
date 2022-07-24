@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const {pollSchema, optionSchema} = require('./Poll');
+
 const userSchema = new Schema(
   {
     username: {
@@ -18,8 +20,8 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    pollsCreated: [{ type: Schema.Types.ObjectId, ref: "Poll" }]
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
