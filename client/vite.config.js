@@ -7,6 +7,12 @@ export default defineConfig({
   server: { 
     proxy: {
       '/graphql':'http://localhost:3001'
+     },
+     "root": "./dist",
+     "clean_urls": true,
+     "routes": {
+       "/**": "index.html"
      }
-  }
-})
+  },
+  
+  })
