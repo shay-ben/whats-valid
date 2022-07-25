@@ -18,6 +18,7 @@ const Container = styled.div`
   input {
     height: fit-content;
     width: 300px;
+    padding: 3px;
   }
   input[type='submit'] {
     grid-column-start: 2;
