@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Container, ErrorText } from '../components/Container';
+import { Container, ErrorText } from '../components/styled-components';
 
 export const SignUp = () => {
   const [errors, setErrors] = useState('');
