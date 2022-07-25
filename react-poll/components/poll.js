@@ -20,5 +20,36 @@ useEffect(() => {
       setTotalVotes(sum);
     });
 }, []);
+
+const submitVote = (e) => {
+    if(voted === false) {
+      const voteSelected = e.target.dataset.id;
+      const voteCurrent = voteData[voteSelected].votes;
+      voteData[voteSelected].votes = voteCurrent + 1;
+      setTotalVotes(totalVotes + 1);
+      setVoted(!voted);
+      const options = {
+        method: "POST",
+        body: JSON.stringify(voteData),
+        headers: { "Content-Type": "application/json" },
+      };
+      fetch(url, options)
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    }
+  };
+  let pollOptions;
+if (voteData) {
+  pollOptions = voteData.map((item) => {
+    return (
+      <li key={item.id}>
+        <button onClick={submitVote} data-id={item.id}>
+          {item.option}
+          <span>- {item.votes} Votes</span>
+        </button>          
+      </li>
+    );
+  });
+}
 }
 export default Poll;
