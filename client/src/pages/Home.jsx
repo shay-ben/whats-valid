@@ -1,15 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../images/valid.png'
 
 const Home = () => {
-  
-  function signUp() {
-    alert('Hello, World!');
+  const navigate = useNavigate();
+
+  function logout() {
+    localStorage.removeItem('id_token');
+    navigate('/login', { replace: true });
   }
   
   return (
 
-    <button onClick={signUp}>CLICK ME</button> 
+    <button onClick={logout}>LOGOUT</button> 
   );
 
 
