@@ -1,6 +1,8 @@
 import { useState } from 'react';
 // import reactLogo from './assets/react.svg';
 import Home from './pages/Home';
+import { Login } from './pages/Login';
+import { SignUp } from './pages/Signup';
 import './App.css';
 
 import React from 'react';
@@ -39,9 +41,19 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+        <Routes>
+          <Route path='/' element={
+            <div className="App">
+              <Home />
+            </div> }
+          />
+          <Route path='login' element={ <Login /> }/>
+          <Route path='signup' element={ <SignUp /> }/>
+        </Routes>
+      </Router>
+    </ApolloProvider>
   )
 }
 
