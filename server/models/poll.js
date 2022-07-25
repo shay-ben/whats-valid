@@ -47,6 +47,14 @@ pollSchema.virtual('totalVotes').get(function () {
   }
   return totalVotes;
 });
+
+pollSchema.methods = {
+	vote: function (optionId) {
+		const option = this.options.find(x => x._id == optionId);
+		option.numVotes++;
+		return this;
+	}
+};
   
 const Poll = model('Poll', pollSchema);
 
