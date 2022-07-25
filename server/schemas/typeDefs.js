@@ -1,4 +1,4 @@
-const { gql } = require(‘apollo-server-express’);
+const { gql } = require('apollo-server-express');
 const typeDefs = gql`
 type User {
   _id: ID
@@ -33,6 +33,7 @@ type Mutation {
   createPoll(name: String, question: String!, optionsArr: [String]): Poll
   deletePoll(id: ID!): String
   deleteAllPolls: String
+  vote(pollID: ID!, optionID: ID!): Poll
 }
 `;
 module.exports = typeDefs;
