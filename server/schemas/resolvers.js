@@ -30,7 +30,13 @@ const resolvers = {
       return result ? result : new UserInputError("No Poll with this ID");
     },
     hasVoted: async (parent, {pollID, userID}) => {
-      return true;
+      const user = await User.findOne(
+        {_id: userID}, 
+      );
+      if (!user) {
+        return new UserInputError("No User with this ID");
+      }
+      return user.pollsVoted.includes(pollID);
     }
   },
 
