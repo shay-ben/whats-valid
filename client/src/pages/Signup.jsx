@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
+import { ADD_USER } from '../utils/mutations';
 import { Container, ErrorText } from '../components/styled-components';
 
 export const SignUp = () => {
@@ -8,6 +11,8 @@ export const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [mutate, result] = useMutation(ADD_USER, { errorPolicy: 'all' });
+  const navigate = useNavigate();
 
   // Use currying to reuse the functionality across all form elements
   const updateData = mode => event => {
@@ -40,7 +45,7 @@ export const SignUp = () => {
     setErrors(pError => `${pError} ${error}`);
   }
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     // Perform some basic validation before submitting the data
     // Make sure that all the fields are filled
     if (!username || !email || !password || !confirmPassword) {
@@ -53,8 +58,13 @@ export const SignUp = () => {
       setErrorState('password and confirmPassword fields should be equal');
       return;
     }
-
-    console.log('inputs now ready for submission');
+    await mutate({
+      variables: { username, email, password }
+    });
+    if (result.data?.token) {
+      localStorage.setItem('id_token', result.data.token)
+      navigate('/', { replace: true });
+    }
   }
 
   return (
