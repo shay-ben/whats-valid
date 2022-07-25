@@ -19,7 +19,11 @@ export const SignUp = () => {
       localStorage.setItem('id_token', result.data.token)
       navigate('/', { replace: true });
     }
-  }, [result.called, result.data?.addUser?.token, result.loading])
+    if (result.error) {
+      setErrors('check the console for errors');
+      console.error(result.error);
+    }
+  }, [result.called, result.data?.addUser?.token, result.loading, result.error])
 
   // Use currying to reuse the functionality across all form elements
   const updateData = mode => event => {

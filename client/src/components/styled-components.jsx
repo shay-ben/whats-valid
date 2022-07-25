@@ -40,6 +40,7 @@ const Container = styled.div`
 
 const ErrorText = styled.span`
   color: red;
+  text-overflow: ellipsis;
 `;
 
 export {

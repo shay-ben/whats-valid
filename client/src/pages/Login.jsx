@@ -16,7 +16,12 @@ export const Login = () => {
       localStorage.setItem('id_token', result.data?.login?.token);
       navigate('/', { replace: true });
     }
-  }, [result.called, result.loading, result.data])
+
+    if (result.error) {
+      setErrors('check the console for errors');
+      console.error(result.error);
+    }
+  }, [result.called, result.loading, result.data, result.error])
 
   const updateData = mode => event => {
     if (errors) {
@@ -44,7 +49,7 @@ export const Login = () => {
   }
   return (
     <Container>
-      <label htmlFor='email'>User Name:</label>
+      <label htmlFor='email'>Email:</label>
       <input value={email} onChange={updateData('email')} id='email' type='email' required/>
       <label htmlFor='password'>Password:</label>
       <input value={password} onChange={updateData('password')} id='password' type='password' required/>
