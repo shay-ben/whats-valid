@@ -49,7 +49,10 @@ export const Login = () => {
       <label htmlFor='password'>Password:</label>
       <input value={password} onChange={updateData('password')} id='password' type='password' required/>
       { errors ? <ErrorText>{errors}</ErrorText> : null}
-      <input onClick={onSubmit} type='submit'/>
+      <div id='controls'>
+        <input onClick={onSubmit} type='submit'/>
+        <a onClick={() => navigate('/signup')}>SignUp</a>
+      </div>
     </Container>
   )
 }

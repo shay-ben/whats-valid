@@ -26,8 +26,14 @@ const Container = styled.div`
     border-radius: 5px;
     cursor: pointer;
     width: fit-content;
+    margin-right: 15px;
   }
   span {
+    grid-column-start: 2;
+  }
+  #controls {
+    cursor: pointer;
+    text-decoration: underline;
     grid-column-start: 2;
   }
 `;

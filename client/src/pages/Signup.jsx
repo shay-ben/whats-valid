@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { ADD_USER } from '../utils/mutations';
@@ -13,6 +13,13 @@ export const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mutate, result] = useMutation(ADD_USER, { errorPolicy: 'all' });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (result.called && result.data?.addUser?.token && !result.loading) {
+      localStorage.setItem('id_token', result.data.token)
+      navigate('/', { replace: true });
+    }
+  }, [result.called, result.data?.addUser?.token, result.loading])
 
   // Use currying to reuse the functionality across all form elements
   const updateData = mode => event => {
@@ -45,7 +52,7 @@ export const SignUp = () => {
     setErrors(pError => `${pError} ${error}`);
   }
 
-  const onSubmit = async () => {
+  const onSubmit = () => {
     // Perform some basic validation before submitting the data
     // Make sure that all the fields are filled
     if (!username || !email || !password || !confirmPassword) {
@@ -58,13 +65,9 @@ export const SignUp = () => {
       setErrorState('password and confirmPassword fields should be equal');
       return;
     }
-    await mutate({
+    mutate({
       variables: { username, email, password }
     });
-    if (result.data?.token) {
-      localStorage.setItem('id_token', result.data.token)
-      navigate('/', { replace: true });
-    }
   }
 
   return (
@@ -78,7 +81,10 @@ export const SignUp = () => {
       <label htmlFor='confirm-password'>Confirm Password:</label>
       <input onChange={updateData('confirm-password')} value={confirmPassword} id='confirm-password' type='password' required/>
       { errors ? <ErrorText>{errors}</ErrorText> : null}
-      <input onClick={onSubmit} type='submit'/>
+      <div id='controls'>
+        <input onClick={onSubmit} type='submit'/>
+        <a onClick={() => navigate('/login')}>LogIn</a>
+      </div>
     </Container>
   )
 }
