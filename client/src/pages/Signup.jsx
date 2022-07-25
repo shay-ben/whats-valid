@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Container, ErrorText } from '../components/styled-components';
 
 export const SignUp = () => {
+  // best practice would be to use formik and yup for validation but keeping it simple
   const [errors, setErrors] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -40,12 +41,14 @@ export const SignUp = () => {
   }
 
   const onSubmit = () => {
+    // Perform some basic validation before submitting the data
     // Make sure that all the fields are filled
     if (!username || !email || !password || !confirmPassword) {
       setErrorState('All fields are required');
       return;
     }
 
+    // Check if the confirmed password is equal to the actual password
     if (password !== confirmPassword) {
       setErrorState('password and confirmPassword fields should be equal');
       return;
