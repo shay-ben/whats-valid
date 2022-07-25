@@ -1,18 +1,20 @@
 import React from 'react';
 import '../images/valid.png'
+import { Button } from 'antd';
+
 
 const Home = () => {
   
-  function signUp() {
+  function homepage() {
     alert('Hello, World!');
   }
   
   return (
-
-    <button onClick={signUp}>CLICK ME</button> 
-  );
-
-
+    <div className="signButton">
+    <Button type="link">Sign In</Button>
+    <Button type="link">Sign Up</Button>
+  </div>
+  )
 };
 
 export default Home;
