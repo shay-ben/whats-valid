@@ -70,6 +70,14 @@ const resolvers = {
     deleteAllPolls: async (parent, args) => {
       await Poll.deleteMany();
       return `All polls were deleted`;
+    },
+    vote: async (parent, {pollID, optionID}) => {
+      const result = await Poll.findOneAndUpdate(
+        {_id: pollID, 'options._id': optionID}, 
+        { $inc: {'options.$.numVotes': 1}}
+      );
+      console.log(result);
+      return result;
     }
   },
 };
