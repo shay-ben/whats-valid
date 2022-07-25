@@ -5,29 +5,17 @@ type User {
   username: String
   email: String
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 type Option {
   _id: ID
   optionBody: String
   numVotes: Int
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 type Poll {
   _id: ID
   name: String
   question: String
   options: [Option]
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 type Auth {
   token: ID!
   user: User
