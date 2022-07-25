@@ -19,7 +19,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    pollsCreated: [{ type: Schema.Types.ObjectId, ref: "Poll" }]
+    pollsVoted: [{ type: Schema.Types.ObjectId, ref: "Poll" }]
   },
   {
     toJSON: {
