@@ -7,6 +7,14 @@ class AuthService {
   getProfile() {
     return decode(this.getToken());
   }
+  getUserId() {
+    const token = this.getToken();
+    if (!token) {
+      return "No user is logged in";
+    }
+    const decodedToken = decode(token);
+    return decodedToken.data._id;
+  }
 
   // check if user's logged in
   loggedIn() {
