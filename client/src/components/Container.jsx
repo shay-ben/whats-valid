@@ -27,8 +27,16 @@ const Container = styled.div`
     cursor: pointer;
     width: fit-content;
   }
+  span {
+    grid-column-start: 2;
+  }
+`;
+
+const ErrorText = styled.span`
+  color: red;
 `;
 
 export {
-  Container
+  Container,
+  ErrorText
 }
