@@ -5,8 +5,10 @@ export const LOGIN_USER = gql`
     login(email: $email, password: $password) {
       token
       user {
-        _id
         username
+        email
+        pollsVoted
+        _id
       }
     }
   }
@@ -17,40 +19,51 @@ export const ADD_USER = gql`
     addUser(username: $username, email: $email, password: $password) {
       token
       user {
-        _id
         username
+        email
+        _id
+      }
+    }
+`;
+
+export const ADD_POLL = gql`
+  mutation addPoll($question: String!, $name: String, $optionsArr: [String]) {
+    createPoll(question: $question, name: $name, optionsArr: $optionsArr) {
+      _id
+      name
+      question
+      options {
+        _id
+        optionBody
+        numVotes
       }
     }
   }
 `;
 
-// export const ADD_POLL = gql`
-//   mutation addThought($pollText: String!) {
-//     addThought(thoughtText: $thoughtText) {
-//       _id
-//       pollText
-//       pollUser
-//       createdAt
-//       comments {
-//         _id
-//         commentText
-//       }
-//     }
-//   }
-// `;
+export const DELETE_USER = gql`
+  mutation DeleteUser($deleteUserId: ID!) {
+    deleteUser(id: $deleteUserId)
+  }
+`;
 
-// export const ADD_COMMENT = gql`
-//   mutation addComment($thoughtId: ID!, $commentText: String!) {
-//     addComment(thoughtId: $thoughtId, commentText: $commentText) {
-//       _id
-//       thoughtText
-//       thoughtAuthor
-//       createdAt
-//       comments {
-//         _id
-//         commentText
-//         createdAt
-//       }
-//     }
-//   }
-// `;
+export const DELETE_POLL = gql`
+  mutation deletePoll($deletePollId: ID!) {
+    deletePoll(id: $deletePollId)
+  }
+`;
+
+export const VOTE = gql`
+  mutation Vote($pollId: ID!, $optionId: ID!, $userId: ID!) {
+    vote(pollID: $pollId, optionID: $optionId, userID: $userId) {
+      _id
+      name
+      question
+      options {
+        _id
+        numVotes
+        optionBody
+      }
+    }
+  }
+`;
