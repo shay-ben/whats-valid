@@ -1,20 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../images/valid.png'
 import { Button } from 'antd';
 
 
 const Home = () => {
-  
-  function homepage() {
-    alert('Hello, World!');
+  const navigate = useNavigate();
+
+  function logout() {
+    localStorage.removeItem('id_token');
+    navigate('/login', { replace: true });
   }
   
   return (
-    <div className="signButton">
-    <Button type="link">Sign In</Button>
-    <Button type="link">Sign Up</Button>
-  </div>
-  )
+
+    <button onClick={logout}>LOGOUT</button> 
+  );
+
+
 };
 
 export default Home;
