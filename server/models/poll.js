@@ -43,7 +43,7 @@ const pollSchema = new Schema(
 pollSchema.virtual('totalVotes').get(function () {
   let totalVotes = 0;
   for (let i=0; i < this.options.length; i++) {
-    totalVotes += this.options.numVotes;
+    totalVotes += this.options[i].numVotes;
   }
   return totalVotes;
 });

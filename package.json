@@ -18,5 +18,11 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "develop": "^1.0.0",
+    "flexbox-react": "^4.4.0",
+    "nodemon": "^2.0.19",
+    "react-router-dom": "^6.3.0"
   }
 }
