@@ -16,6 +16,7 @@ export const GET_ALL_POLLS = gql`
       _id
       name
       question
+      totalVotes
       options {
         optionBody
         numVotes
@@ -31,6 +32,7 @@ export const GET_POLL = gql`
       _id
       name
       question
+      totalVotes
       options {
         _id
         optionBody

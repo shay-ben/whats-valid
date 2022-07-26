@@ -15,6 +15,7 @@ type Poll {
   _id: ID
   name: String
   question: String
+  totalVotes: Int
   options: [Option]
 }
 type Auth {
@@ -40,3 +41,4 @@ type Mutation {
 }
 `;
 module.exports = typeDefs;
+
