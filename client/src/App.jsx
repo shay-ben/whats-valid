@@ -4,6 +4,7 @@ import { Login } from './pages/Login';
 import { SignUp } from './pages/Signup';
 import  Newpoll from './pages/newpoll';
 import Poll from './pages/poll';
+import Poll from './pages/leaderboard';
 import './App.css';
 
 import React from 'react';
