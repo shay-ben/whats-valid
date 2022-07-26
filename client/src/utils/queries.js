@@ -41,7 +41,7 @@ export const GET_POLL = gql`
 `;
 
 export const GET_USER = gql`
-  query Query($userId: ID!) {
+  query getUser($userId: ID!) {
     user(id: $userId) {
       _id
       username
