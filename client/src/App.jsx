@@ -7,6 +7,7 @@ import Poll from './pages/poll';
 import Poll from './pages/leaderboard';
 import './App.css';
 
+
 import React from 'react';
 import {
   ApolloClient,
