@@ -3,6 +3,25 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+html {
+  background-image: url("./images/valid.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+
 }
 
 .logo {
