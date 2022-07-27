@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 class Newpoll extends Component {
 
   componentDidMount() {
-    document.getElementById("submitButton").disabled = true
+    document.getElementById("submitButton")
   }
 
   // validate = () => {
@@ -39,7 +39,7 @@ class Newpoll extends Component {
               Would you rather...<br/>
       		    <input type="text" id="optionOne" placeholder="Option 1" onChange={this.validate}/> or <br/>
               <input type="text" id="optionTwo" placeholder="Option 2" onChange={this.validate}/> ? <br/>
-              <Link to='/'>  
+              <Link to='/poll'>  
                 <input type="button" id="submitButton" onClick={this.saveQuestion} value="Submit"/>  
               </Link>
             </form>
