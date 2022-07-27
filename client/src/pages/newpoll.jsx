@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
-import Flexbox from 'flexbox-react';
+// import Flexbox from 'flexbox-react';
 
 class Newpoll extends Component {
 
