@@ -15,6 +15,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-image: url("./images/BACKGROUND.png");
+ 
 }
 
 .btn {
@@ -43,3 +45,14 @@
   background-color: #db937a;
   transition: 0.7s;
 }
+
+
+.loginForm {
+  text-align: center;
+}
+
+
+@media screen and (min-width: 720px) {
+  .body {
+    width: 100%;
+  }}
