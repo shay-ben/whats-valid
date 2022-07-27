@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Home from './pages/Home';
-import { Login } from './pages/Login';
-import { SignUp } from './pages/Signup';
+import  Login  from './components/LoginForm';
+import  SignUp  from './components/SignupForm';
 import  Newpoll from './pages/newpoll';
 import Poll from './pages/poll';
-import Poll from './pages/leaderboard';
+// import Leaderboard from './pages/leaderboard';
 import './App.css';
 
 
@@ -52,9 +52,8 @@ function App() {
               <Home />
             </div> }
           />
-
           <Route path='/login' element={ <Login /> }/>
-          <Route path='/signup' element={ <SignUp /> }/>
+          {/* <Route path='/signup' element={ <SignUp /> }/> */}
 <Route path='/newpoll' element={ <Newpoll /> }/>
 <Route path='/poll' element={ <Poll /> }/>
         </Routes>
