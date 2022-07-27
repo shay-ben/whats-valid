@@ -52,8 +52,7 @@ const LoginForm = () => {
   };
 
   return (
-    <>
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
@@ -88,10 +87,89 @@ const LoginForm = () => {
           variant='success'>
           Submit
         </Button>
-      </Form>
-    </>
+      </Form> 
   );
 };
 
+// <style>
+//     * {
+//         margin: 0;
+//         padding: 0;
+//         box-sizing: border-box;
+//         color: white;
+//         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+//         font-style: italic;
+//         letter-spacing: 2px;
+//     }
+
+//     body {
+//         background-image: url('image/BACKGROUND.png');
+//         background-size: center center;
+//         background-size: 100% 165%;
+//         background-repeat: no-repeat;
+//     }
+
+//     form {
+//         border-radius: 50px;
+//         width: 40%;
+//         padding: 1.4em 2.5em;
+//         margin: auto;
+//         background-color: #fb7975;
+//         position: relative;
+//         top: 5em;
+
+//     }
+
+//     form>div>label {
+//         color: white !important;
+//     }
+
+//     form>div>input {
+//         width: 100%;
+//         border: none;
+//         padding: 5px;
+//         margin: 12px auto;
+//     }
+
+//     input#btn-submit {
+//         color: #dd4b46;
+//         font-size: 15px;
+//         width: 30%;
+//         display: block;
+//         border-radius: 50px;
+//         padding: 15px;
+//         margin: 5px auto 10px;
+//     }
+// </style>
+
+// <body>
+//     <div class="form-container">
+//         <form action="" method="post">
+//             <div class="email-container">
+//                 <label for="">Email</label><br>
+//                 <input type="email" name="email" id="email">
+//             </div>
+//             <div class="username-container">
+//                 <label for="">User</label><br>
+//                 <input type="text" name="username" id="username">
+//             </div>
+//             <div class="password-container">
+//                 <label for="">Password</label><br>
+//                 <input type="password" name="password" id="password">
+//             </div>
+//             <div class="con-password-container">
+
+//                 <label for="">Confirm Password</label><br>
+//                 <input type="password" name="confirmpassword" id="confirmpassword">
+//             </div>
+//             <div class="submit-container">
+//                 <input type="submit" value="Submit" name="btn-submit" id="btn-submit">
+//             </div>
+//             <p style="text-align: center;font-size: 14px;">ALREADY VALID? SIGN IN HERE!</p>
+//         </form>
+//     </div>
+// </body>
+
+// </html>
 
 export default LoginForm;

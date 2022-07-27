@@ -19,4 +19,33 @@ const Home = () => {
 
 };
 
+// make this into a const style 
+{/* <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 7px;
+}
+body {
+background-image: url('image/bg-index.png');
+background-size: center center;
+background-size: 100% 165%;
+background-repeat: no-repeat;
+}
+.signin{
+margin-top: 15em;
+}
+.signin,.signup{
+text-align: center;
+position: relative;
+top: 10em;
+font-size: 23px;
+}
+</style>
+</head> */}
+
+
 export default Home;
