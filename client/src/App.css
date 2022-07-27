@@ -15,9 +15,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-image: url("./images/BACKGROUND.png");
+  
  
 }
+
+body {
+      background-image: url('./images/BACKGROUND.png');
+      background-size: center center;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
 
 .btn {
   text-align: center;
