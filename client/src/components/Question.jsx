@@ -1,11 +1,12 @@
-import React,{Component} from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+// import { connect } from 'react-redux'
+import { Link, withRouter, Route, Redirect } from 'react-router-dom';
+// import { handleAnswerQuestion } from '../actions'
+import QuestionPage from './QuestionPage';
 import Flexbox from 'flexbox-react';
-import { useMutation } from '@apollo/client';
-import { ADD_POLL } from '../utils/mutations';
 
-class Poll extends Component {
-    
+class Question extends Component {
+
   state = {
     optionSelected: null
   }
@@ -244,4 +245,4 @@ const linkStyle = {
   textDecoration: 'none',
 }
 
-export default Poll;
+export default withRouter(connect(mapStateToProps)(Question))

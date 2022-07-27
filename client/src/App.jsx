@@ -4,6 +4,7 @@ import  Login  from './components/LoginForm';
 import  SignUp  from './components/SignupForm';
 import  Newpoll from './pages/newpoll';
 import Poll from './pages/poll';
+// import Question from './components/Question';
 // import Leaderboard from './pages/leaderboard';
 import './App.css';
 
@@ -55,6 +56,7 @@ function App() {
           <Route path='/signup' element={ <SignUp /> }/>
           <Route path='/newpoll' element={ <Newpoll /> }/>
           <Route path='/poll' element={ <Poll /> }/>
+          {/* <Route path='/question' element={ <Question /> }/> */}
         </Routes>
       </Router>
     </ApolloProvider>
