@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import Home from './pages/Home';
 import  Login  from './components/LoginForm';
 import  SignUp  from './components/SignupForm';
@@ -15,7 +15,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -52,9 +52,9 @@ function App() {
             </div> }
           />
           <Route path='/login' element={ <Login /> }/>
-          {/* <Route path='/signup' element={ <SignUp /> }/> */}
-<Route path='/newpoll' element={ <Newpoll /> }/>
-<Route path='/poll' element={ <Poll /> }/>
+          <Route path='/signup' element={ <SignUp /> }/>
+          <Route path='/newpoll' element={ <Newpoll /> }/>
+          <Route path='/poll' element={ <Poll /> }/>
         </Routes>
       </Router>
     </ApolloProvider>
