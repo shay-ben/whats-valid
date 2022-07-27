@@ -16,8 +16,13 @@ const Home = () => {
     <button class="btn" type="link" onClick={login}>WHATS VALID?</button> 
   );
 
-
 };
+
+
+export default Home;
+
+
+
 
 // make this into a const style 
 {/* <style>
@@ -46,6 +51,3 @@ font-size: 23px;
 }
 </style>
 </head> */}
-
-
-export default Home;

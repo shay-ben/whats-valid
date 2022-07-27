@@ -1,6 +1,9 @@
 import React,{Component} from 'react'
 import { Link } from 'react-router-dom'
-// import Flexbox from 'flexbox-react';
+import Flexbox from 'flexbox-react'
+
+// import { ADD_POLL  } from '../utils/mutations'
+
 
 class Newpoll extends Component {
 
@@ -8,32 +11,31 @@ class Newpoll extends Component {
     document.getElementById("submitButton")
   }
 
-  // validate = () => {
-  //   const optionOne = document.getElementById("optionOne").value
-  //   const optionTwo = document.getElementById("optionTwo").value
-  //   document.getElementById("submitButton").disabled = (optionOne === '' || optionTwo === '')
-  // }
+  validate = () => {
+    const optionOne = document.getElementById("optionOne").value
+    const optionTwo = document.getElementById("optionTwo").value
+    document.getElementById("submitButton").disabled = (optionOne === '' || optionTwo === '')
+  }
 
-  // saveQuestion = () => {
-  //   const optionOne = document.getElementById("optionOne").value
-  //   const optionTwo = document.getElementById("optionTwo").value
-  //   const qAuthor = this.props.authedUser.id
-  //   const users = this.props.users
-  //   document.getElementById("wouldYouRather").reset();
-  // 	this.props.dispatch(handleSaveQuestion({ 
-  //     optionOneText: optionOne, 
-  //     optionTwoText: optionTwo, 
-  //     author: qAuthor }, 
-  //     users, 
-  //     qAuthor));
-  // }
+  saveQuestion = () => {
+    const optionOne = document.getElementById("optionOne").value
+    const optionTwo = document.getElementById("optionTwo").value
+    const qAuthor = this.props.authedUser.id
+    const users = this.props.users
+    document.getElementById("wouldYouRather").reset();
+  	this.props.dispatch(handleSaveQuestion({ 
+      optionOneText: optionOne, 
+      optionTwoText: optionTwo, 
+      author: qAuthor }, 
+      users, 
+      qAuthor));
+  }
 
   render() {
     return (
       <Flexbox style={divStyle}>  
         <h1 style={titleStyle}> Create Poll </h1>
         <Flexbox style={pictureAndFormStlye}>
-          {/* <img src={`${this.props.avatarURL}`} alt="icon" style={profpicStyle}/>  */}
           <Flexbox style={formContainerStyle}> 
             <form id="wouldYouRather" style={formStyle}>
               Would you rather...<br/>
@@ -50,12 +52,12 @@ class Newpoll extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   let authedUser = state.authedUser
-//   let users = state.users
-//   let avatarURL = users[authedUser.id].avatarURL
-//   return { authedUser:authedUser, users:users, avatarURL:avatarURL }
-// }
+function mapStateToProps(state) {
+  let authedUser = state.authedUser
+  let users = state.users
+  let avatarURL = users[authedUser.id].avatarURL
+  return { authedUser:authedUser, users:users, avatarURL:avatarURL }
+}
 
 const titleStyle = {
   color: '#183059',
