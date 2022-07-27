@@ -7,14 +7,13 @@ import { Button } from 'antd';
 const Home = () => {
   const navigate = useNavigate();
 
-  function logout() {
+  function login() {
     localStorage.removeItem('id_token');
     navigate('/login', { replace: true });
   }
-  
   return (
 
-    <button onClick={logout}>LOGOUT</button> 
+    <button class="btn" type="link" onClick={login}>WHATS VALID?</button> 
   );
 
 
