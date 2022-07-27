@@ -13,7 +13,7 @@ const Home = () => {
   }
   return (
 
-    <button onClick={login}>WHATS VALID?</button> 
+    <button class="btn" type="link" onClick={login}>WHATS VALID?</button> 
   );
 
 

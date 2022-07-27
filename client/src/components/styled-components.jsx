@@ -9,8 +9,8 @@ const Container = styled.div`
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 20px 20px 20px;
   row-gap: 10px;
-  text-align: left;
-  box-shadow: 5px 10px 18px #888888;
+  text-align: center;
+
   border-radius: 5px;
   label {
     margin-right: 10px;
