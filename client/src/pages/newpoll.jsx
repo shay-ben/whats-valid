@@ -8,25 +8,25 @@ class Newpoll extends Component {
     document.getElementById("submitButton").disabled = true
   }
 
-  validate = () => {
-    const optionOne = document.getElementById("optionOne").value
-    const optionTwo = document.getElementById("optionTwo").value
-    document.getElementById("submitButton").disabled = (optionOne === '' || optionTwo === '')
-  }
+  // validate = () => {
+  //   const optionOne = document.getElementById("optionOne").value
+  //   const optionTwo = document.getElementById("optionTwo").value
+  //   document.getElementById("submitButton").disabled = (optionOne === '' || optionTwo === '')
+  // }
 
-  saveQuestion = () => {
-    const optionOne = document.getElementById("optionOne").value
-    const optionTwo = document.getElementById("optionTwo").value
-    const qAuthor = this.props.authedUser.id
-    const users = this.props.users
-    document.getElementById("wouldYouRather").reset();
-  	this.props.dispatch(handleSaveQuestion({ 
-      optionOneText: optionOne, 
-      optionTwoText: optionTwo, 
-      author: qAuthor }, 
-      users, 
-      qAuthor));
-  }
+  // saveQuestion = () => {
+  //   const optionOne = document.getElementById("optionOne").value
+  //   const optionTwo = document.getElementById("optionTwo").value
+  //   const qAuthor = this.props.authedUser.id
+  //   const users = this.props.users
+  //   document.getElementById("wouldYouRather").reset();
+  // 	this.props.dispatch(handleSaveQuestion({ 
+  //     optionOneText: optionOne, 
+  //     optionTwoText: optionTwo, 
+  //     author: qAuthor }, 
+  //     users, 
+  //     qAuthor));
+  // }
 
   render() {
     return (
@@ -50,12 +50,12 @@ class Newpoll extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  let authedUser = state.authedUser
-  let users = state.users
-  let avatarURL = users[authedUser.id].avatarURL
-  return { authedUser:authedUser, users:users, avatarURL:avatarURL }
-}
+// function mapStateToProps(state) {
+//   let authedUser = state.authedUser
+//   let users = state.users
+//   let avatarURL = users[authedUser.id].avatarURL
+//   return { authedUser:authedUser, users:users, avatarURL:avatarURL }
+// }
 
 const titleStyle = {
   color: '#183059',
